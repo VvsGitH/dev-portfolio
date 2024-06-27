@@ -1,0 +1,16 @@
+{
+  "metadata": {
+    "title": "Vito PS | Software Developer",
+    "description": "Ciao! Mi chiamo Vito Paparella Santorsola, sono un software developer e questo è il mio portfolio."
+  },
+  "theme": {
+    "theme": "Tema",
+    "dark": "Scuro",
+    "light": "Chiaro"
+  },
+  "languages": {
+    "select_lang": "Lingua",
+    "it": "Italiano",
+    "en": "Inglese"
+  }
+}

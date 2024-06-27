@@ -1,0 +1,16 @@
+{
+  "metadata": {
+    "title": "Vito PS | Software Developer",
+    "description": "Hi! My name is Vito Paparella Santorsola, I'm a software developer and this is my portfolio."
+  },
+  "theme": {
+    "theme": "Theme",
+    "dark": "Dark",
+    "light": "Light"
+  },
+  "languages": {
+    "select_lang": "Language",
+    "it": "Italian",
+    "en": "English"
+  }
+}
