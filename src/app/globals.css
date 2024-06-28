@@ -3,45 +3,45 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb--light: #0f172a;
-  --background-rgb--light: #fef3c7;
+  --text-primary--light: #0f172a;
+  --bg-primary--light: #fef3c7;
   --footer-image--light: url("/footer-image-light.svg");
 
-  --foreground-rgb--dark: #fffbeb;
-  --background-rgb--dark: #0f172a;
+  --text-primary--dark: #fffbeb;
+  --bg-primary--dark: #0f172a;
   --footer-image--dark: url("/footer-image-dark.svg");
 
-  --foreground-rgb: var(--foreground-rgb--light);
-  --background-rgb: var(--background-rgb--light);
+  --text-primary: var(--text-primary--light);
+  --bg-primary: var(--bg-primary--light);
   --footer-image: var(--footer-image--light);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --foreground-rgb: var(--foreground-rgb--dark);
-    --background-rgb: var(--background-rgb--dark);
+    --text-primary: var(--text-primary--dark);
+    --bg-primary: var(--bg-primary--dark);
     --footer-image: var(--footer-image--dark);
     color-scheme: dark;
   }
 }
 
 html[data-theme="light"] {
-  --foreground-rgb: var(--foreground-rgb--light);
-  --background-rgb: var(--background-rgb--light);
+  --text-primary: var(--text-primary--light);
+  --bg-primary: var(--bg-primary--light);
   --footer-image: var(--footer-image--light);
   color-scheme: light;
 }
 
 html[data-theme="dark"] {
-  --foreground-rgb: var(--foreground-rgb--dark);
-  --background-rgb: var(--background-rgb--dark);
+  --text-primary: var(--text-primary--dark);
+  --bg-primary: var(--bg-primary--dark);
   --footer-image: var(--footer-image--dark);
   color-scheme: dark;
 }
 
 body {
-  color: var(--foreground-rgb);
-  background: var(--background-rgb);
+  color: var(--text-primary);
+  background: var(--bg-primary);
 }
 
 @layer utilities {

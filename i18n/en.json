@@ -12,5 +12,12 @@
     "select_lang": "Language",
     "it": "Italian",
     "en": "English"
+  },
+  "home-page": {
+    "greating": "Ciao",
+    "presentation": "My name is __name__ Paparella Santorsola",
+    "name": "Vito",
+    "role_prefix": "and I'm a",
+    "role": "web developer"
   }
 }

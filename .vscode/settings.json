@@ -5,7 +5,7 @@
   "editor.quickSuggestions": {
     "strings": "on"
   },
-
   "editor.formatOnSave": true,
-  "editor.formatOnPaste": true
+  "editor.formatOnPaste": true,
+  "i18n-ally.localesPaths": ["i18n"]
 }
