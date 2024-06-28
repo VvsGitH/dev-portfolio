@@ -2,6 +2,7 @@ import { Metadata, Viewport } from "next";
 import { RedirectType, redirect } from "next/navigation";
 import { getTranslations } from "next-intl/server";
 import { NextIntlClientProvider, useMessages } from "next-intl";
+import { ThemeProvider } from "@/providers/theme-provider";
 import { DEFAULT_LOCALE, LOCALES } from "@/constants/locales";
 import { getTheme } from "@/utils/theme-server";
 import { font } from "@/constants/fonts";
@@ -19,15 +20,19 @@ export default function RootLayout({
   if (!LOCALES.includes(params.locale)) {
     redirect(`/${DEFAULT_LOCALE}`, RedirectType.replace);
   }
+
   const messages = useMessages();
+  const theme = getTheme();
 
   return (
-    <html lang={params.locale} data-theme={getTheme()}>
+    <html lang={params.locale} data-theme={theme}>
       <body className={`${font.className} flex flex-col h-screen`}>
         <NextIntlClientProvider messages={messages}>
-          <Header />
-          {children}
-          <div className="footer-image" />
+          <ThemeProvider serverTheme={theme}>
+            <Header />
+            {children}
+            <div className="footer-image" />
+          </ThemeProvider>
         </NextIntlClientProvider>
       </body>
     </html>
