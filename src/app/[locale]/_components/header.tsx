@@ -1,5 +1,5 @@
-import { LangButton } from "@/components/langButton";
-import { ThemeButton } from "@/components/themeButton";
+import { LangButton } from "@/components/lang-button";
+import { ThemeButton } from "@/components/theme-button";
 
 export function Header() {
   return (
