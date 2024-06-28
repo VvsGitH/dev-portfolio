@@ -45,10 +45,10 @@ export function Select<T = string>({ value, options, onChange, label }: SelectPr
       </ListboxButton>
 
       <ListboxOptions
-        anchor="bottom"
+        anchor={{ to: "bottom", gap: "0.5rem", padding: "0.5rem" }}
         transition
         className={clsx(
-          "rounded-xl border p-1 mt-1.5 [--anchor-gap:var(--spacing-1)] focus:outline-none",
+          "rounded-xl border p-1 focus:outline-none",
           "transition duration-100 ease-in data-[leave]:data-[closed]:opacity-0",
           theme === "dark" ? "border-white/5 bg-white/5" : "border-slate-900/5 bg-slate-900/5"
         )}
