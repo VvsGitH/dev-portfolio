@@ -6,7 +6,7 @@ import { ThemeProvider } from "@/providers/theme-provider";
 import { DEFAULT_LOCALE, LOCALES } from "@/constants/locales";
 import { getTheme } from "@/utils/theme-server";
 import { font } from "@/constants/fonts";
-import { Header } from "./_header";
+import { Header } from "./_components/header";
 
 import "@/app/globals.css";
 

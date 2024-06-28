@@ -1,35 +1,32 @@
-"use client";
-
-import { ChangeEventHandler, useMemo } from "react";
-import { ThemeVariant } from "@/types";
+import { MoonIcon, SunIcon } from "@heroicons/react/20/solid";
 import { useTranslations } from "next-intl";
-import { getThemeClient } from "../utils/theme-client";
-import { isClient } from "../utils/isClient";
+import { ThemeVariant } from "@/types";
+import { Select, SelectOption } from "./select";
+import { getTheme, updateTheme } from "../utils/theme-server";
 
-export function ThemeButton({
-  theme,
-  onThemeChange,
-}: {
-  theme?: ThemeVariant;
-  onThemeChange: (theme: ThemeVariant) => void;
-}) {
+export function ThemeButton() {
   const t = useTranslations("theme");
 
-  const themeClient = useMemo(() => (isClient() && getThemeClient()) || "", []);
+  const themeOptions: SelectOption<ThemeVariant>[] = [
+    {
+      value: "dark",
+      label: t("dark"),
+      displayAs: <MoonIcon aria-label={t("dark")} className="fill-white size-5" />,
+    },
+    {
+      value: "light",
+      label: t("light"),
+      displayAs: <SunIcon aria-label={t("light")} className="fill-slate-900 size-5" />,
+    },
+  ];
 
-  const handleThemeChange: ChangeEventHandler<HTMLSelectElement> = (event) => {
-    const selected = event.target.value;
-    if (!selected) return;
-    onThemeChange(selected as ThemeVariant);
+  const theme = getTheme() || "dark";
+  const value = themeOptions.find((opt) => opt.value == theme)!;
+
+  const setTheme = async (theme: ThemeVariant) => {
+    "use server";
+    updateTheme(theme);
   };
 
-  return (
-    <div>
-      <label htmlFor="theme-select">{t("theme")}</label>
-      <select id="theme-select" value={theme || themeClient} onChange={handleThemeChange}>
-        <option value="dark">{t("dark")}</option>
-        <option value="light">{t("light")}</option>
-      </select>
-    </div>
-  );
+  return <Select label={t("theme")} options={themeOptions} value={value} onChange={setTheme} />;
 }
