@@ -7,6 +7,7 @@ import { DEFAULT_LOCALE, LOCALES } from "@/constants/locales";
 import { getTheme } from "@/utils/theme-server";
 import { font } from "@/constants/fonts";
 import { Header } from "./_components/header";
+import { Footer } from "./_components/footer";
 
 import "@/app/globals.css";
 
@@ -31,7 +32,7 @@ export default function RootLayout({
           <ThemeProvider serverTheme={theme}>
             <Header />
             {children}
-            <div className="footer-image" />
+            <Footer />
           </ThemeProvider>
         </NextIntlClientProvider>
       </body>

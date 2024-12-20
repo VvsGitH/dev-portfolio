@@ -2,61 +2,55 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --text-primary--light: #0f172a;
-  --bg-primary--light: #fef3c7;
-  --footer-image--light: url("/footer-image-light.svg");
-
-  --text-primary--dark: #fffbeb;
-  --bg-primary--dark: #0f172a;
-  --footer-image--dark: url("/footer-image-dark.svg");
-
-  --text-primary: var(--text-primary--light);
-  --bg-primary: var(--bg-primary--light);
-  --footer-image: var(--footer-image--light);
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --text-primary: var(--text-primary--dark);
-    --bg-primary: var(--bg-primary--dark);
+    --color-primary-text-light: #0f172a;
+    --color-primary-bg-light: #fffbeb;
+    --footer-image--light: url("/footer-image-light.svg");
+    --color-primary-text-dark: #fffbeb;
+    --color-primary-bg-dark: #0f172a;
+    --footer-image--dark: url("/footer-image-dark.svg");
+  }
+
+  @media (prefers-color-scheme: light) {
+    :root {
+      --text-primary: var(--color-primary-text-light);
+      --bg-primary: var(--color-primary-bg-light);
+      --footer-image: var(--footer-image--light);
+      color-scheme: light;
+    }
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --text-primary: var(--color-primary-text-dark);
+      --bg-primary: var(--color-primary-bg-dark);
+      --footer-image: var(--footer-image--dark);
+      color-scheme: dark;
+    }
+  }
+
+  html[data-theme="light"] {
+    --text-primary: var(--color-primary-text-light);
+    --bg-primary: var(--color-primary-bg-light);
+    --footer-image: var(--footer-image--light);
+    color-scheme: light;
+  }
+
+  html[data-theme="dark"] {
+    --text-primary: var(--color-primary-text-dark);
+    --bg-primary: var(--color-primary-bg-dark);
     --footer-image: var(--footer-image--dark);
     color-scheme: dark;
   }
-}
 
-html[data-theme="light"] {
-  --text-primary: var(--text-primary--light);
-  --bg-primary: var(--bg-primary--light);
-  --footer-image: var(--footer-image--light);
-  color-scheme: light;
-}
-
-html[data-theme="dark"] {
-  --text-primary: var(--text-primary--dark);
-  --bg-primary: var(--bg-primary--dark);
-  --footer-image: var(--footer-image--dark);
-  color-scheme: dark;
-}
-
-body {
-  color: var(--text-primary);
-  background: var(--bg-primary);
-}
-
-@layer utilities {
-  .bg-glass {
-    background: linear-gradient(
-      90deg,
-      rgba(149, 163, 184, 0) 0%,
-      rgba(149, 163, 184, 0.1) 30%,
-      rgba(149, 163, 184, 0.1) 100%
-    );
-    /* box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); */
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
+  body {
+    color: var(--text-primary);
+    background: var(--bg-primary);
   }
+}
 
+@layer components {
   .footer-image {
     overflow: hidden;
     position: relative;
